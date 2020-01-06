@@ -15,9 +15,6 @@ body {
   background: transparent;
 }
 
-nav {
-  height: 100px !important;
-}
 .nav-link {
   color: white !important;
 }
