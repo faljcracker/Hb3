@@ -1,7 +1,7 @@
 body {
   background-image: url("../img/background.jpeg");
   background-size: cover;
-  background-repeat: no-repeat;
+  background-repeat: repeat-y;
 }
 .bg-image {
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
@@ -17,4 +17,32 @@ body {
 
 .nav-link {
   color: white !important;
+}
+
+.circle {
+  height: 250px;
+  width: 200px;
+}
+.dot {
+  height: 150px;
+  width: 150px;
+  background-color: #b041ff;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 0;
+}
+
+.dot:hover {
+  -moz-box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.4);
+  -webkit-box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.4);
+  box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.4);
+}
+
+.card-body-intro {
+  height: 500px !important;
+  border-radius: 50px !important;
+  border: 1px solid rgba(0, 0, 0, 0.2) !important;
+}
+.rounded {
+  border-radius: 10px !important;
 }
