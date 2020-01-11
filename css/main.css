@@ -86,13 +86,4 @@ body {
     border-radius: 25px;
     width: 500px;
   }
-
-  #contact-form {
-    display: block !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    text-align: left !important;
-    border-radius: 25px;
-    width: 500px;
-  }
 }
