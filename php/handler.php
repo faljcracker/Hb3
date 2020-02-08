@@ -1,12 +1,5 @@
 <?php
 
-function debug_to_console($data) {
-    $output = $data;
-    if (is_array($output))
-        $output = implode(',', $output);
-
-    echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
-}
 /*
 This first bit sets the email address that you want the form to be submitted to.
 You will need to change this value to a valid email address that you can access.
@@ -17,28 +10,25 @@ $webmaster_email = "kenthfrank01@gmail.com";
 This bit sets the URLs of the supporting pages.
 If you change the names of any of the pages, you will need to change the values here.
 */
-$home_page = "../index.html";
+$home_page = "../";
 $error_page = "error.html";
-$feedback_page = "../feedback.html";
+$feedback_page = "../feedback";
 
 /*
 This next bit loads the form field data into variables.
 If you add a form field, you will need to add it here.
 */
-$email_address = $_REQUEST['email'] ;
-debug_to_console($_REQUEST);
-$comments = $_REQUEST['message'] ;
+
 $name  = $_REQUEST['name'] ;
-$phone_number  = $_REQUEST['phone'] ;
-$needed_services  = $_REQUEST['service'];
-$product  = $_REQUEST['type-product'];
+$email = $_REQUEST['email'] ;
+$subject = $_REQUEST['subject'] ;
+$message = $_REQUEST['message'] ;
+
 $msg =
 "Name: " . $name . "\r\n" .
-"Email: " . $email_address . "\r\n" .
-"Phone Number: " . $phone_number .  "\r\n" .
-"Needed Serives: " . $needed_services .  "\r\n" .
-"Products I sell: " . $product .  "\r\n" .
-"Message: " . $comments .  "\r\n" 
+"Email: " . $email . "\r\n" .
+"subject: " . $subject .  "\r\n" .
+"message: " . $message .  "\r\n"
 ;
 
 /*
@@ -70,22 +60,22 @@ header( "Location: $home_page" );
 }*/
 
 // If the form fields are empty, redirect to the error page.
-if (empty($comments) || empty($email_address)) {
-header( "Location: $error_page" );
+if (empty($message) || empty($email)) {
+header( "Location: $feedback_page" );
 }
 
 /*
 If email injection is detected, redirect to the error page.
 If you add a form field, you should add it here.
 */
-elseif ( isInjected($email_address) ||  isInjected($comments) ) {
+elseif ( isInjected($email) ||  isInjected($message) ) {
 header( "Location: $error_page" );
 }
 
 // If we passed all previous tests, send the email then redirect to the thank you page.
 else {
 
-	mail( "$webmaster_email", "You have a new message from NH Pharmaceuticals Contact Us", $msg );
+	mail( "$webmaster_email", "You have a new message from ieltscertificatesonline Contact Us", $msg );
 
 	header( "Location: $feedback_page" );
 }
