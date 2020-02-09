@@ -11,7 +11,7 @@ This bit sets the URLs of the supporting pages.
 If you change the names of any of the pages, you will need to change the values here.
 */
 $home_page = "../";
-$error_page = "error.html";
+$error_page = "../error";
 $feedback_page = "../feedback";
 
 /*
@@ -19,8 +19,8 @@ This next bit loads the form field data into variables.
 If you add a form field, you will need to add it here.
 */
 
-$name  = $_REQUEST['name'] ;
-$email = $_REQUEST['email'] ;
+$name    = $_REQUEST['name'] ;
+$email   = $_REQUEST['email'] ;
 $subject = $_REQUEST['subject'] ;
 $message = $_REQUEST['message'] ;
 
@@ -61,7 +61,7 @@ header( "Location: $home_page" );
 
 // If the form fields are empty, redirect to the error page.
 if (empty($message) || empty($email)) {
-header( "Location: $feedback_page" );
+header( "Location: $error_page" );
 }
 
 /*
